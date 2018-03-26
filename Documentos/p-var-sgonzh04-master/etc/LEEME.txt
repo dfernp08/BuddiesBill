@@ -1,0 +1,40 @@
+Practica P-VAR
+
+Alumno:Samuel González Herrero
+
+Horas dedicadas: La verdad es que no lo se... puede que 13 o 14.
+
+Problemas surgidos al realizar la practica: Pues unos cuantos. A veces no sabía del todo bien como solucionar los errores de compilación (ni siquiera sé si los he solucionado bien) y en algunas cosas que pedía de hacer tú mismo, no de arreglar problemas, creo haberlas hecho bien, pero más de lo mismo (eso como cosas generales). 
+Como cosas más específicas: no sabía la diferencia de la resta entre los double y los BigDecimal. Tube problemas en el ejercicio 1 del apartado 2, pero le di valor a op1 y parece que funciona. En el ejercicio 1 del apartado 3 me costó encontrar la forma en la que se calculaba la raíz cuadrada, con los demás fui un poco más rápido.
+
+Respuestas a la preguntas:
+Apartado 030101 , ejercicio04 : No estoy seguro, pero parece que el ordenador al tener que pasar a binario esos números se pierde precisión a la hora de hacer la resta posterior ya que hay números que no s epueden representar exactamente aunque sean casi igual por lo que hay un ligero error, sin embargo es mínimo.
+
+Apartado 030101 , ejercicio05 : En este caso al usar BigDEcimal no usamos valores en binario, sino en base 10, por eso es más fácil representar esos valores como valores exactos, asi que la operacion da el resultado exacto. Pero por ejemplo tendría problemas para representar otros valores, como la tercera parte de 10000000 (por ejemplo).
+
+Apartado 030104 , ejercicio 1 : La explicación la puse en los comentarios de la hoja de comandos (aunque realmente no llego a saber si está bien hecho o explicado).
+
+Apartado 030104 , ejercicio 2 : Usando el valor de varLOng = 35000L, para el varByte vale -72, para el varShort vale -30536 y para el varInt vale 35000. Esto sucede porque cuando usas varByte estas dentro de los números que puede marcar el byte (desde -128 hasta 127), entonces empieza a contar desde 0 hasta que llega a 127, entonces "completa la vuelta" y empieza desde -128 hasta llegar a 127 otra vez, y así hasta llegar a 35000. Lo mismo pasa con el varShort: llega a 32767 (el número máximo que puede contar), entonces vuelve a empezar desde -32768 hasta que cuenta 35000. Sin embargo, los 35000 entran directamente dentro de los valores que se le puede dar a varInt.
+
+Apartado 030104 , ejercicio 3 : No lo pedía en el pdf pero por si acaso lo pongo :
+	varByte = 123
+	varShort = 123
+	varInt = 123
+	varLong = 123
+	varDouble = 123.0999984741211
+
+Apartado 030104 , ejercicio 4 :  
+	Gigante: Infinity (ES tan grande que le da valor infinito)
+	Normal : 35.987656 (Es su valor normal)
+	Minimo : 0.0 (Es tan pequeño que le da valor 0.0)
+	Byte  : -126 
+	Short : -32766
+	Int   : -2147483646
+	(Con estas tres vuelve a suceder lo mismo que pasaba en el apartado 2, pero esta vez ni siquiera int es lo suficientemente grande como para tener su valor dentro de él en la primera "vuelta")
+	f: 1.3E22 (Este es el valo de float)
+
+Apartado 030201 , ejercicio 10 : El resultado que obtengo quiere dice que esas frases son lexicograficamente similares, es decir, las palabras puestan por orden pertenecen a la misma categoría gramatical.
+
+Apartado 030202 , ejercicio 01 : La diferencia entre lenght() y capacity() es que capacity() nos devuelve la capacidad actual del String, mientras que el lenght() nos devuellve su longitud.
+
+Apartado 030203 , ejercicio 1 : Hay una diferencia clara entre la primera vez que lo ejecutas y la segunda, en la primera recibes la información de donde se encuenta la carpeta Alumno.java, pero al realizar los cambios, en vez de aparecerte eso, puedes ver el NIU de Pepe y su nota. Después simplemente pasé la parte de la clase Alumno que cambié también para la clase Profesor menos la parte de la nota ya que no estab definida en la clase Profesor y me daba error, y se observa como me daba una información diferente.
