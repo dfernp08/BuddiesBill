@@ -1,0 +1,26 @@
+3 constructores   (1 ya creado)
+
+3 getters   (1 ya dado)
+
+3 setters
+
+8 métodos  "isSame" ---- 4 con if, 4 sin if   (1 ya dado)  
+
+getMonthName
+isDayRight  (int day)
+setSeasonName   (imprimirá la estación del mes en el que estamos)
+getMonthsLeft
+toString (ya nos lo han dado)
+getDaysLeftOfMonth
+getMonthsSameDays
+daysPast
+numRandomTriesEqualDate1  (este con un while)
+numRandomTriesEqualDate2  (este con un do-while (creo))
+dayOfWeek
+tomorrow
+
+43b799fc4ca84e400c5a1cfc7ff58e94a2acaa57
+
+git add*
+git commit -m "______"
+git push -u origin2 ___
