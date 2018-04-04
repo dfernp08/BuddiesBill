@@ -21,6 +21,6 @@ tomorrow
 
 43b799fc4ca84e400c5a1cfc7ff58e94a2acaa57
 
-git add*
-git commit -m "______"
-git push -u origin2 ___
+git add *
+git commit -m "______"  (pones el nombre que quiras, yo empecé poniendo first coomit and second commit)
+git push -u origin2 master    (creo que este es siempre así)

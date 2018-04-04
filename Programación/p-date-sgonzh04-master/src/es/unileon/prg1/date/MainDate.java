@@ -9,4 +9,21 @@ public class MainDate {
 		System.out.println(today + " isSameYear " + tomorrow + "? " + today.isSameYear(tomorrow));
 	}
 
+
+
+	//Si algo ha ido mal solo tiene que llegar el mensaje, es decir, si pone una fecha inválida
+	try {
+		today = new Date (99, 14, 2017);
+		System.out.println (today.toString());
+	}catch (DateException e) {
+		System.out.println (e.getMessage());
+	}
+
+
+
+
+
+
+
+
 }
