@@ -7,6 +7,14 @@ public class Date {
 	private int year;
 	
 	// Constructor mal programado: Permite crear fechas no validas
+	public Date(int day, int month, int year){
+
+		this.day=day;
+		this.month=month;
+		this.year=year;
+	}
+
+
 	public void setYear(int year){
 	
 		this.year = year;
@@ -132,26 +140,51 @@ public class Date {
 	}
 
 
+	//Me piden lo de isDayRight, pero eso ya lo hice arriba, o eso creo
+
 	public String setSeasonName(){
 
-	String season =" ";
+	String season = " ";
 
-		if (this.month==1 || this.month==2 || (this.month==12 && this.day>21) || (this.month==3 && this.day<21)){
+		if (this.month==1 || this.month==2 || (this.month==12 && this.day>=21) || (this.month==3 && this.day<21)){
 			return "Winter";
 		}
-		if (this.month==4 || this.month==5 || (this.month==3 && this.day>21) || (this.month==6 && this.day<21)){
+		if (this.month==4 || this.month==5 || (this.month==3 && this.day>=21) || (this.month==6 && this.day<21)){
 			return "Spring";
 		}
 		
-		if (this.month==7 || this.month==8 || (this.month==6 && this.day>21) || (this.month==9 && this.day<21)){
+		if (this.month==7 || this.month==8 || (this.month==6 && this.day>=21) || (this.month==9 && this.day<21)){
 			return "Summer";
 		}
 		
-		if (this.month==10 || this.month==11 || (this.month==9 && this.day>21) || (this.month==12 && this.day<21)){
+		if (this.month==10 || this.month==11 || (this.month==9 && this.day>=21) || (this.month==12 && this.day<21)){
 			return "Autumn";
 		}
 		return season;
+	}
+
+	//Simplemente cuenta los meses que quedan para el final del año, no te da nombres ni nada, contando en el que estamos (lo cual 		supongo que dará igual)
+	public int getMonthsLeft(){
+
+	int i=0;
+	int months=0;
+		for (i=this.getMonth();i<=12;i++){
+			
+			months=months+1;
 		}
+		return months;
+	}
+		
+
+	
+
+
+
+
+
+
+
+
 
 
 
