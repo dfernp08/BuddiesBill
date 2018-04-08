@@ -6,12 +6,31 @@ public class Date {
 	private int month;
 	private int year;
 	
-	// Constructor mal programado: Permite crear fechas no validas
-	public Date(int day, int month, int year){
+	// Constructor mal programado: Permite crear fechas no validas (ya no)
+	public Date(int day, int month, int year) throws DateException{
 
-		this.day=day;
-		this.month=month;
+		if ((month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12) && (day<1 || day>31)){
+			throw new DateException ("Día " + day + " no válido." + " Valores posibles entre 1 y 31 en este mes");
+		}else if ((month==4 || month==6 || month==9 || month==11) && (day<1 || day>30)){
+			throw new DateException ("Día " + day + " no válido." + " Valores posibles entre 1 y 30 en este mes");
+		}else if (month==2 && (day<1 || day>28)){
+			throw new DateException ("Día " + day + " no válido." + " Valores posibles entre 1 y 28 en Febrero");
+		}else{
+			this.day = day;
+		}
+
+
+		if (month<1 || month>12){
+			throw new DateException ("Mes " +month + " no válido." + " Valores posibles entre 1 y 12");
+		}else{
+			this.month = month;
+		}
+
+		if (year<1){
+			throw new DateException ("Año " + year + " no válido." + " Valores posibles números positivos");
+		}else{
 		this.year=year;
+		}
 	}
 
 
@@ -21,30 +40,22 @@ public class Date {
 		
 	}
 
-	//TODO los throw no van bien
-	//Para saber si el mes es válido
-	public void setMonth(int month) throws DateException{
+	
 
-		if (month<1 || month>12){
-			throw new DateException ("Mes " +month + " no válido." + " Valores posibles entre 1 y 12");
-		}else{
+
+	//Para saber si el mes es válido
+	public void setMonth(int month){
+
+		
 			this.month = month;
-		}
 		
 	}
 		
 	
 	//Para saber si el día es válido
-	public void setDay(int day) throws DateException{
-		if (month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12 && day>31){
-			throw new DateException ("Día " + day + " no válido." + " Valores posibles entre 1 y 31 en este mes");
-		}else if (month==4 || month==6 || month==9 || month==11 && day>30){
-			throw new DateException ("Día " + day + " no válido." + " Valores posibles entre 1 y 30 en este mes");
-		}else if (month==2 && day>28){
-			throw new DateException ("Día " + day + " no válido." + " Valores posibles entre 1 y 28 en Febrero");
-		}else{
+	public void setDay(int day, int month){
+		
 			this.day = day;
-		}
 		
 	}
 
@@ -96,7 +107,7 @@ public class Date {
 	}
 
 
-	//TODO Métodos isSame sin los if
+	//TODO Métodos isSame sin los if (esto se va a quedar así porque no se me ocurre otra manera
 
 	
 
@@ -141,7 +152,7 @@ public class Date {
 	}
 
 
-	//Me piden lo de isDayRight, pero eso ya lo hice arriba, o eso creo
+	//Me piden lo de isDayRight, pero eso ya lo hice arriba para los días qeu son válidos, asi que no entiendo muy bien esto
 
 	public String setSeasonName(){
 
@@ -175,13 +186,82 @@ public class Date {
 		}
 		return months;
 	}
-		
+
 
 	
 
+	
+
+	//Dias que faltan del mes, cuenta en el que estamos
+	
+	public int getDaysLeftOfMonth(){
+
+	int i=0;
+	int days=0;
+	int daysinmonth=0;
+		if (month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12){
+			for (i=this.getDay();i<=31;i++){
+			days = days+1;
+			}
+		}else if(month==4 || month==6 || month==9 || month==11){
+			for (i=this.getDay();i<=30;i++){
+			days = days+1;
+			}
+		}else{
+			for (i=this.getDay();i<=28;i++){
+			days = days+1;
+			}
+		}
+		return days;
+	}
+	
+
+	public int setMonthsSameDays(){
+
+	int months = 0;
+	switch (this.month){
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12:
+			months = 31;
+			break;
+
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			months = 30;
+			break;
+
+		case 2: months = 28;
+			break;
+		}
+		return months;
+	}
+			
+	public String getMonthsSameDays(){
+
+	String monthsamedays = " ";
+		if (setMonthsSameDays(this.months)==31){
+			monthsamedays = "January, March, May, July, August, October, December";
+		}else if (setMonthsSameDays(this.months)==30){
+			monthsamedays = "April, June, September, November";
+		}else{
+			monthsamedays = "February";
+		}
+		return monthsamedays;
+	}
 
 
 
+	//Días que han pasado en este año
+	//public int daysPast(){
+	
+	
 
 
 

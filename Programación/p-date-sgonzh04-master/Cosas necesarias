@@ -21,9 +21,9 @@ tomorrow
 
 43b799fc4ca84e400c5a1cfc7ff58e94a2acaa57  (este parece que dejó de funcionar)
 
-7a69a79a14dd3482761d6502f24bd1191243b813
+7a69a79a14dd3482761d6502f24bd1191243b813  (este también dejó de funcionar, no se que pasa)
 
-
+302592301c3e2b7aebb0fdac42284ed5bfeb8884
 
 git add *
 git commit -m "______"  (pones el nombre que quiras, yo empecé poniendo first coomit and second commit)
