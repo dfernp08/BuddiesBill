@@ -21,6 +21,7 @@ public class Date {
 		
 	}
 
+	//TODO los throw no van bien
 	//Para saber si el mes es válido
 	public void setMonth(int month) throws DateException{
 
