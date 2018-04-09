@@ -7,7 +7,7 @@ public class MainDate {
 	public static void main(String[] args) throws DateException{
 		Date today, tomorrow;
 		today = new Date(21, 3, 2018);
-		tomorrow = new Date(22, 3, 2018);
+		tomorrow = new Date(21, 3, 2018);
 		System.out.println(today + " isSameYear " + tomorrow + "? " + today.isSameYear(tomorrow));
 		System.out.println(today + " isSameMonth " + tomorrow + "? " + today.isSameMonth(tomorrow));
 		System.out.println(today + " isSameDay " + tomorrow + "? " + today.isSameDay(tomorrow));
@@ -17,6 +17,11 @@ public class MainDate {
 		System.out.println(today + " getMonthsLeft (cuenta en el que estamos) " + "? " + today.getMonthsLeft());
 		System.out.println(today + " getDaysLeftOfMonth (cuenta en el que estamos) " + "? " + today.getDaysLeftOfMonth());
 		System.out.println(today + " getMonthsSameDays " + "? " + today.getMonthsSameDays());
+		System.out.println(today + " daysPast " + "? " + today.daysPast());
+		//System.out.println("Number of attempts needed to generate a random date equals to our date(using while): " + today.numRandomTriesEqualDate1());
+		//System.out.println("Number of attempts needed to generate a random date equals to our date(using do while): " + today.numRandomTriesEqualDate2());
+		System.out.println("\nDay of the week today: " + today.dayOfWeek());
+
 		
 	}
 	

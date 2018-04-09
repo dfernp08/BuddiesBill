@@ -74,7 +74,7 @@ public class Date {
 	}
 
 	//Metodos isSame con los if
-	boolean isSameYear(Date another){
+	public boolean isSameYear(Date another){
 		if ( this.year == another.getYear() ){
 			return true;
 		}else{
@@ -82,7 +82,7 @@ public class Date {
 		}
 	}
 
-	boolean isSameMonth(Date another){
+	public boolean isSameMonth(Date another){
 		if(this.month == another.getMonth()){
 			return true;
 		}else{
@@ -90,7 +90,7 @@ public class Date {
 		}
 	}
 
-	boolean isSameDay(Date another){
+	public boolean isSameDay(Date another){
 		if(this.day == another.getDay()){
 			return true;
 		}else{
@@ -98,7 +98,7 @@ public class Date {
 		}
 	}
 
-	boolean isSame (Date another){
+	public boolean isSame (Date another){
 		if ((this.day == another.getDay()) && (this.month == another.getMonth()) && (this.year == another.getYear())){
 			return true;
 		}else{
@@ -107,7 +107,7 @@ public class Date {
 	}
 
 
-	//TODO Métodos isSame sin los if (esto se va a quedar así porque no se me ocurre otra manera
+	//TODO Métodos isSame sin los if (esto se va a quedar así porque no se me ocurre otra manera)
 
 	
 
@@ -198,17 +198,17 @@ public class Date {
 
 	int i=0;
 	int days=0;
-	int daysinmonth=0;
+	int d = this.day;
 		if (month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12){
-			for (i=this.getDay();i<=31;i++){
+			for (i=d;i<=31;i++){
 			days = days+1;
 			}
 		}else if(month==4 || month==6 || month==9 || month==11){
-			for (i=this.getDay();i<=30;i++){
+			for (i=d;i<=30;i++){
 			days = days+1;
 			}
 		}else{
-			for (i=this.getDay();i<=28;i++){
+			for (i=d;i<=28;i++){
 			days = days+1;
 			}
 		}
@@ -216,10 +216,10 @@ public class Date {
 	}
 	
 
-	public int setMonthsSameDays(){
+	public int getMonthsDays(int month){
 
 	int months = 0;
-	switch (this.month){
+	switch (month){
 		case 1:
 		case 3:
 		case 5:
@@ -246,9 +246,9 @@ public class Date {
 	public String getMonthsSameDays(){
 
 	String monthsamedays = " ";
-		if (setMonthsSameDays(this.months)==31){
+		if (getMonthsDays(this.month)==31){
 			monthsamedays = "January, March, May, July, August, October, December";
-		}else if (setMonthsSameDays(this.months)==30){
+		}else if (getMonthsDays(this.month)==30){
 			monthsamedays = "April, June, September, November";
 		}else{
 			monthsamedays = "February";
@@ -259,12 +259,99 @@ public class Date {
 
 
 	//Días que han pasado en este año
-	//public int daysPast(){
+	public int daysPast(){
+
+	int i = 0;
+	int m=this.month;
+	//Ya sumo así los días que han pasado de el mes en el que estamos
+	int diaspasados=this.day;
+		for (i=1;i<m;i++){
+			diaspasados = diaspasados + getMonthsDays(i);
+		}
+		return diaspasados;
+	}
 	
 	
+	//Fechas aleatorias que coincidan con la dada
+	//Me dice "unreported exception DateException; must be caught or declared to be thrown", y no se como se soluciona, se supone que ya hice las excepciones así que pongo estas dos en comentarios
+	
+	/*
+	*public int numRandomTriesEqualDate1(){
 
+	int counter=0;
+	int randomDay=0, randomMonth=0,randomYear=0;
+            
+            
+		while(!this.isSame(new Date(randomDay,randomMonth,randomYear))){
+                  
+			randomYear = this.year;
+			int rangeMonths=(12-1)+1;
+			randomMonth = (int)(Math.random()*(rangeMonths)) + 1;
+			int rangeDays= (getMonthsDays(randomMonth) - 1) + 1;
+			randomDay= (int)(Math.random()*(rangeDays)) + 1 ;
 
+			counter++;
+                  
+		}
 
+		return counter;
+	}
+
+	public int numRandomTriesEqualDate2(){
+
+	int counter=0;
+	int randomDay=0, randomMonth=0,randomYear=0;
+
+		do{
+			randomYear = this.year;
+			int rangeMonths=(12-1)+1;
+			randomMonth = (int)(Math.random()*(rangeMonths)) + 1;
+			int rangeDays= (getMonthsDays(randomMonth) - 1) + 1;
+			randomDay= (int)(Math.random()*(rangeDays)) + 1 ;
+
+			counter++;
+
+		} while(!this.isSame(new Date(randomDay,randomMonth,randomYear)));
+
+			return counter;
+	}
+	*/
+
+	public String nameOfDay(int day){
+
+	String nameDays= " ";
+
+	switch(day){
+
+		case 1: nameDays = "Sunday";
+			break;
+		case 2: nameDays = "Monday";
+			break;
+		case 3: nameDays = "Tuesday";
+			break;
+		case 4: nameDays = "Wednesday";
+			break;
+		case 5: nameDays = "Thursday";
+			break;
+		case 6: nameDays = "Friday";
+			break;
+		case 7: nameDays = "Saturday";
+			break;
+                        
+                                         
+		}
+
+		return nameDays;
+	}
+
+	public String dayOfWeek(){
+
+		int name;
+		name = (daysPast() % 7 + day) % 7;
+
+		return nameOfDay(name);
+
+	}
 
 
 
